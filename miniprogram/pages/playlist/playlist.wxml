@@ -1,0 +1,16 @@
+<!-- 轮播图组件 详细参数看api -->
+<swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000">
+  <block wx:for="{{swiperImgUrls}}" wx:key="url">
+    <swiper-item>
+      <!-- image标签，看api -->
+      <image src="{{item.url}}" mode="widthFix" class="img"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 歌单 -->
+<view class="playlist-container">
+  <block wx:for="{{playlist}}" wx:key="_id">
+    <x-playlist playlist="{{item}}">
+    </x-playlist>
+  </block>
+</view>
