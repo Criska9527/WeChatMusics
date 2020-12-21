@@ -1,0 +1,10 @@
+<!-- 歌单列表 -->
+<view class="detail-container" style='background: url({{lisyInfo.coverImgUrl}})  no-repeat  top/cover'></view>
+<view class="detail-mask"></view>
+<view class="detail-info">
+  <image src="{{lisyInfo.coverImgUrl}}" class="detail-img"></image>
+  <view class="detail">
+    <view class="detail-nm">{{lisyInfo.name}}</view>
+  </view>
+</view>
+<x-musiclist musiclist="{{musiclist}}"></x-musiclist>

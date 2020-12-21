@@ -91,7 +91,6 @@ Page({
     //请求云函数music
     wx.cloud.callFunction({
       name: 'music',
-
       data: {
         start: this.data.playlist.length,
         count: MAX_LIMIT,

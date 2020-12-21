@@ -30,7 +30,7 @@ Component({
     attached() {
       // 在组件实例进入页面节点树时执行
       // this.getMusicInfo()
-      this.getMovieInfo()
+      // this.getMovieInfo()
     },
     detached() {
       // 在组件实例被从页面节点树移除时执行
@@ -56,6 +56,12 @@ Component({
         // console.log(decimal)
         return parseFloat(parseInt(num / 100000000) + '.' + decimal) + '亿';
       }
+    },
+    //点击事件,跳转到歌曲列表
+    gotToMusiclist(){
+      wx.navigateTo({
+        url: `../../pages/musiclist/musiclist?playlistId=${this.properties.playlist.id}`,
+      })
     },
     getMusicInfo(){
       wx.cloud.callFunction({
