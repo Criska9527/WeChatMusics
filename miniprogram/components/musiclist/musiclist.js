@@ -22,14 +22,17 @@ Component({
       //currentTarget和Target的区别，事件冒泡
       //Target是真正的事件源，currentTarget是绑定事件的元素
       //事件源，事件处理函数，事件对象，事件类型
+      //获取标签所有的自定义data
       const ds = event.currentTarget.dataset
-      const musicid = ds.musicid
+      //歌曲id
+      const musicId = ds.musicid
       this.setData({
-        playingId: musicid
+        playingId: musicId
       })
       //跳转到播放页
       wx.navigateTo({
-        url: `../../pages/player/player?musicid=${musicid}`,
+        //传入id和歌曲序号
+        url: `../../pages/player/player?musicId=${musicId}&index=${ds.index}`,
       })
     }
   }

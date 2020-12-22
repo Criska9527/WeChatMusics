@@ -19,7 +19,7 @@ Page({
     wx.showLoading({
       title:'加载中',
     })
-    //调用云函数获取接口
+    //调用云函数获取接口，那个歌曲列表
     wx.cloud.callFunction({
       name:'music',
       data:{
@@ -37,10 +37,16 @@ Page({
           name:pl.name
         }
       })
+      //把歌曲列表存储到本地
+      this._setMusiclist()
       wx.hideLoading()
     })
   },
+  _setMusiclist(){
+    //同步存储本地
+    wx.setStorageSync('musiclist', this.data.musiclist)
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

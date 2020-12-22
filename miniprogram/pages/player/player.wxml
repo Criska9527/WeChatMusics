@@ -1,2 +1,14 @@
-<!--pages/player/player.wxml-->
-<text>pages/player/player.wxml</text>
+<!-- 播放页 -->
+<view class="play-container" style='background: url({{picUrl}})  no-repeat  center/cover'></view>
+<view class="player-mask"></view>
+<div class="player-info">
+  <div class="play-disc {{isPlaying?'play':''}}">
+    <image class="player-img rotation {{isPlaying ? '':'rotation-paused'}}" src="{{picUrl}}"></image>
+</div>
+</div>
+<view class="control">
+  <text class="iconfont icon-shangyishoushangyige" bind:tap="onPrev"></text>
+  <text class="iconfont {{isPlaying? 'icon-zanting1':'icon-bofang1'}}" bind:tap="tooglePlaying"></text>
+  <text class="iconfont icon-xiayigexiayishou" bind:tap="onNext"></text>
+</view>
+

@@ -8,7 +8,9 @@ const rp = require('request-promise')
 //初始化云数据库
 const db = cloud.database()
 //接口，歌单
-const URL = 'http://musicapi.leanapp.cn/personalized'
+const URL = 'http://zmap.club:3000/personalized'
+//const URL = 'http://zmap.club:3000/top/playlist'
+
 const playlistCollection = db.collection('playlist')
 //最大数量
 const MAX_LIMIT = 100
