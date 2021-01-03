@@ -7,7 +7,7 @@ Page({
    */
   data: {
     musiclist:[],
-    lisyInfo:{
+    listInfo:{
 
     }
   },
@@ -33,7 +33,7 @@ Page({
       const pl = res.result.playlist
       this.setData({
         musiclist:res.result.playlist.tracks,
-        lisyInfo:{
+        listInfo:{
           coverImgUrl:pl.coverImgUrl,
           name:pl.name
         }
