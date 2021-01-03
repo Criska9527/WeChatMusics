@@ -4,7 +4,11 @@
     "pages/blog/blog",
     "pages/profile/profile",
     "pages/musiclist/musiclist",
-    "pages/player/player"
+    "pages/player/player",
+    "pages/blog-edit/blog-edit",
+    "pages/blog-comment/blog-comment",
+    "pages/profile-playhistory/profile-playhistory",
+    "pages/profile-bloghistory/profile-bloghistory"
   ],
   "requiredBackgroundModes": ["audio", "location"],
   "window": {
@@ -15,7 +19,6 @@
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2",
   "tabBar": {
     "color":"#474747",
     "selectedColor": "#d43c43",
@@ -27,13 +30,13 @@
         "selectedIconPath": "images/music-actived.png"
       },
       {
-        "pagePath": "pages/playlist/playlist",
+        "pagePath": "pages/blog/blog",
         "text": "发现",
         "iconPath": "images/blog.png",
         "selectedIconPath": "images/blog-actived.png"
       },
       {
-        "pagePath": "pages/playlist/playlist",
+        "pagePath": "pages/profile/profile",
         "text": "我的",
         "iconPath": "images/profile.png",
         "selectedIconPath": "images/profile-actived.png"

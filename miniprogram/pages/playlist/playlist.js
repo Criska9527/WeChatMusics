@@ -84,7 +84,7 @@ Page({
   _getplaylist() {
     let a = []
     this.data.playlist.concat([1])
-    console.log(this.data.playlist.concat([1]))
+    // console.log(this.data.playlist.concat([1]))
     wx.showLoading({
       title: '加载中',
     })
@@ -97,7 +97,7 @@ Page({
         $url: 'playlist',
       }
     }).then((res) => {
-      console.log(res)
+      // console.log(res)
       this.setData({
         playlist: this.data.playlist.concat(res.result.data)
       })

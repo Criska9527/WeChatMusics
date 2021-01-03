@@ -38,8 +38,14 @@ exports.main = async (event, context) => {
     //   return res
     // })
     ctx.body = await rp(BASE_URL + '/song/url?id=' + event.musicId)
-    .then((res) => {
-      return JSON.parse(res)
+      .then((res) => {
+        return JSON.parse(res)
+      })
+  })
+  //获取歌词
+  app.router('lyric', async (ctx, next) => {
+    ctx.body = await rp(BASE_URL + `/lyric?id=${event.musicId}`).then((res) => {
+      return res
     })
   })
   return app.serve()

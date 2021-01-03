@@ -1,14 +1,22 @@
 <!-- 播放页 -->
 <view class="play-container" style='background: url({{picUrl}})  no-repeat  center/cover'></view>
 <view class="player-mask"></view>
-<div class="player-info">
-  <div class="play-disc {{isPlaying?'play':''}}">
+<view class="player-info">
+  <!-- 封面信息 -->
+  <view class="play-disc {{isPlaying?'play':''}}" bindtap="onChangeLyricShow" hidden="{{isLyricShow}}">
     <image class="player-img rotation {{isPlaying ? '':'rotation-paused'}}" src="{{picUrl}}"></image>
-</div>
-</div>
+  </view>
+  <!-- 歌词 -->
+  <z-lyric isLyricShow="{{!isLyricShow}}" bind:tap="onChangeLyricShow" lyric="{{lyric}}" class="lyric"></z-lyric>
+</view>
+
+<!-- 进度条 -->
+<view class="progress-bar">
+  <z-progress-bar bind:musicEnd="onNext" bind:timeUpdate="timeUpdate"  isSame="{{isSame}}"></z-progress-bar>
+</view>
+<!-- 控制面板 -->
 <view class="control">
   <text class="iconfont icon-shangyishoushangyige" bind:tap="onPrev"></text>
   <text class="iconfont {{isPlaying? 'icon-zanting1':'icon-bofang1'}}" bind:tap="tooglePlaying"></text>
   <text class="iconfont icon-xiayigexiayishou" bind:tap="onNext"></text>
 </view>
-

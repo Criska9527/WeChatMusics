@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "z-progress-bar":"/components/progress-bar/progress-bar",
+    "z-lyric":"/components/lyric/lyric"
+  },
+  "disableScroll": true
 }

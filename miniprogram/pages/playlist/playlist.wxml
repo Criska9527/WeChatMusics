@@ -10,7 +10,7 @@
 <!-- 歌单 -->
 <view class="playlist-container">
   <block wx:for="{{playlist}}" wx:key="_id">
-    <x-playlist playlist="{{item}}">
-    </x-playlist>
+    <z-playlist playlist="{{item}}">
+    </z-playlist>
   </block>
 </view>

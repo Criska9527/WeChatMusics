@@ -70,7 +70,7 @@ Component({
           $url:'music'
         }
       }).then((res)=>{
-        console.log(res)
+        // console.log(res)
       })
     },
     getMovieInfo(){
@@ -80,7 +80,7 @@ Component({
           $url:'movie'
         }
       }).then((res)=>{
-        console.log(res)
+        // console.log(res)
       })
     }
   }

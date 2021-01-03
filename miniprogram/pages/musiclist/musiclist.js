@@ -1,4 +1,5 @@
 // pages/musiclist/musiclist.js
+// const app = 
 Page({
 
   /**
@@ -15,7 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     wx.showLoading({
       title:'加载中',
     })
@@ -28,7 +29,7 @@ Page({
       }
     
     }).then((res)=>{
-      console.log(res)
+      // console.log(res)
       const pl = res.result.playlist
       this.setData({
         musiclist:res.result.playlist.tracks,

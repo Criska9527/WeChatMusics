@@ -38,17 +38,11 @@
   },
   "appid": "wxfdd20804f88623cd",
   "projectname": "music-criska",
-  "libVersion": "2.8.1",
+  "libVersion": "2.14.1",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
@@ -56,7 +50,6 @@
       "list": []
     },
     "gamePlugin": {
-      "current": -1,
       "list": []
     },
     "miniprogram": {
@@ -72,6 +65,12 @@
           "name": "musiclist",
           "pathName": "pages/musiclist/musiclist",
           "query": "playlistId= 5321106622",
+          "scene": null
+        },
+        {
+          "name": "blog-edit",
+          "pathName": "pages/blog-edit/blog-edit",
+          "query": "nickName= \"Promise.then()\"& avatarUrl=\"https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIQ…RcRclvkkQVgLgprrlkibHtJalu9Xgh6EmT1Hp1rLCEicA/132",
           "scene": null
         }
       ]

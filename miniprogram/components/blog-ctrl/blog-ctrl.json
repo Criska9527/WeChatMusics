@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "z-login": "/components/login/login",
+    "z-bottom-model": "/components/bottom-model/bottom-model"
+  }
+}
