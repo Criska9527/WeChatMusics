@@ -1,11 +1,11 @@
 <!-- 歌单列表页 -->
 <!-- 歌单详情 -->
-<view class="detail-container" style='background: url({{lisyInfo.coverImgUrl}})  no-repeat  top/cover'></view>
+<view class="detail-container" style='background: url({{listInfo.coverImgUrl}})  no-repeat  top/cover'></view>
 <view class="detail-mask"></view>
 <view class="detail-info">
-  <image src="{{lisyInfo.coverImgUrl}}" class="detail-img"></image>
+  <image src="{{listInfo.coverImgUrl}}" class="detail-img"></image>
   <view class="detail">
-    <view class="detail-nm">{{lisyInfo.name}}</view>
+    <view class="detail-nm">{{listInfo.name}}</view>
   </view>
 </view>
 <!-- 列表 -->

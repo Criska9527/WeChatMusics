@@ -11,6 +11,15 @@ exports.main = async (event, context) => {
   const app = new TcbRouter({
     event
   })
+  //获取轮播图
+  app.router('banner', async (ctx, next) => {
+    //获取数据库的集合playlist,
+    //设置起始，与个数，按照createTime字段进行降序排列
+    ctx.body = await rp(BASE_URL + '/banner')
+    .then((res) => {
+      return JSON.parse(res)
+    })
+  })
   //获取歌单
   app.router('playlist', async (ctx, next) => {
     //获取数据库的集合playlist,

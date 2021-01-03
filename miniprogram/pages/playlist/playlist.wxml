@@ -1,9 +1,9 @@
 <!-- 轮播图组件 详细参数看api -->
 <swiper indicator-dots="true" autoplay="true" interval="2000" duration="1000">
-  <block wx:for="{{swiperImgUrls}}" wx:key="url">
+  <block wx:for="{{swiperImgUrls}}" wx:key="imageUrl">
     <swiper-item>
       <!-- image标签，看api -->
-      <image src="{{item.url}}" mode="widthFix" class="img"></image>
+      <image src="{{item.imageUrl}}" mode="scaleToFill" class="img"></image>
     </swiper-item>
   </block>
 </swiper>

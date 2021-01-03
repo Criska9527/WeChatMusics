@@ -74,21 +74,25 @@ Page({
       }
     }).then((res) => {
       const result = res.result
-      if(result.data[0].url==null){
+      if (result.data[0].url == null) {
         wx.showToast({
           title: '无权限播放',
         })
       }
-      if(!this.data.isSame){
+      if (!this.data.isSame) {
         backgroundAudioManager.src = result.data[0].url
         backgroundAudioManager.title = music.name
         backgroundAudioManager.coverImgUrl = music.al.picUrl
         backgroundAudioManager.singer = music.ar[0].name
         backgroundAudioManager.epname = music.al.name
+
+
+        //保存播放历史
+        this.savePlayHistory()
       }
       // console.log(res)
-    
- 
+
+
       // console.log(JSON.parse(res))
       this.setData({
         isPlaying: true
@@ -160,6 +164,28 @@ Page({
     this.selectComponent('.lyric').update(event.detail.currentTime)
 
 
+  },
+  //保存播放历史
+  savePlayHistory() {
+    //当前正在播放的歌曲
+    const music = musiclist[nowPlayingIndex]
+    const openid = app.globalData.openid
+    const history = wx.getStorageSync(openid)
+    let bHave = false
+    for (let i = 0; i < history.length; i++) {
+      if (history[i].id == music.id) {
+        bHave = true
+        break
+      }
+
+    }
+    if (!bHave) {
+      history.unshift(music)
+      wx.setStorage({
+        data: history,
+        key: openid,
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

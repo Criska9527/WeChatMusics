@@ -1,33 +1,33 @@
-// pages/profile/profile.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    musiclist:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-  onTapQrCode(){
-    wx.showLoading({
-      title: '二维码生成中'
-    })
-    wx.cloud.callFunction({
-      name:'getQrCode'
-    }).then((res) =>{
-      const fileId = res.result
-      wx.previewImage({
-        urls: [fileId],
-        current: fileId
+    const playHistory = wx.getStorageSync(app.globalData.openid)
+    if(playHistory.length===0){
+      wx.showModal({
+        title: '播放历史为空',
+        content:'',
       })
-      wx.hideLoading()
-    })
+    } else{
+       //Story的歌单替换为历史播放的歌单
+       wx.setStorage({
+         data: playHistory,
+         key: 'musiclist',
+       })
+        this.setData({
+          musiclist:playHistory,
+        })
+    }
   },
 
   /**

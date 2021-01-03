@@ -17,13 +17,28 @@ App({
     }
     //全局
     this.globalData = {
-      playingMusicId:-1
+      playingMusicId:-1,
+      openid:-1,
     }
+    this.getOpenid()
   },
   setPlayMusicId(musicId){
       this.globalData.playingMusicId = musicId
   },
   getPlayMusicId(){
     return  this.globalData.playingMusicId
+  },
+  //获取用户的openid
+  getOpenid(){
+    wx.cloud.callFunction({
+      name:'login'
+    }).then((res)=>{
+      const openid =  res.result.openid
+      this.globalData.openid =openid
+      //判断openid是否存在
+      if(wx.getStorageSync(openid)===''){
+        wx.setStorageSync(openid, [])
+      }
+    })
   }
 })

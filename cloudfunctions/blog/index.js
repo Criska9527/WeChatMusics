@@ -74,5 +74,16 @@ exports.main = async (event, context) => {
     }
 
   })
+
+//获取用户的bloglist
+  app.router('getListByOpenid', async (ctx, next) => {
+    const wxContext = cloud.getWXContext()
+    ctx.body = await blogCollection.where({
+      _openid: wxContext.OPENID
+    }).skip(event.start).limit(event.count).
+      orderBy('createTime', 'desc').get().then((res) => {
+        return res.data
+    })
+  })
   return app.serve()
 }

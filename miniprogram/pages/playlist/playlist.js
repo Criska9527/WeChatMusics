@@ -7,15 +7,7 @@ Page({
    */
   data: {
     swiperImgUrls: [
-      {
-        url: 'http://p1.music.126.net/oeH9rlBAj3UNkhOmfog8Hw==/109951164169407335.jpg',
-      },
-      {
-        url: 'http://p1.music.126.net/xhWAaHI-SIYP8ZMzL9NOqg==/109951164167032995.jpg',
-      },
-      {
-        url: 'http://p1.music.126.net/Yo-FjrJTQ9clkDkuUCTtUg==/109951164169441928.jpg',
-      },
+    
     ],
     playlist: []
   },
@@ -25,6 +17,7 @@ Page({
    */
   onLoad: function (options) {
     this._getplaylist()
+    this._getbannerlist()
 
   },
 
@@ -65,6 +58,7 @@ Page({
       playlist: []
     })
     this._getplaylist()
+    this._getbannerlist()
   },
 
   /**
@@ -72,6 +66,7 @@ Page({
    */
   onReachBottom: function () {
     this._getplaylist()
+    this._getbannerlist()
   },
 
   /**
@@ -105,5 +100,28 @@ Page({
       wx.stopPullDownRefresh()
       wx.hideLoading()
     })
-  }
+  },
+    //获取轮播图
+    _getbannerlist() {
+
+      wx.showLoading({
+        title: '加载中',
+      })
+      //请求云函数music
+      wx.cloud.callFunction({
+        name: 'music',
+        data: {
+          $url: 'banner',
+        }
+      }).then((res) => {
+        console.log(res)
+        const bannerlist = res.result.banners
+        this.setData({
+          swiperImgUrls: bannerlist
+        })
+        //手动停止下拉刷新
+        wx.stopPullDownRefresh()
+        wx.hideLoading()
+      })
+    }
 })
